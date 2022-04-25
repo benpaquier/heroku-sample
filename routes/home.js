@@ -1,8 +1,11 @@
 const express = require("express")
 const app = express()
 
-const { getHomeArticles } = require("../controllers/home")
-
-app.get('/', getHomeArticles)
+app.get('/', (req, res) => {
+  res.render('home', {
+    title: "Homepage",
+    isMorning: true
+  })
+})
 
 module.exports = app
