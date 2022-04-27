@@ -1,10 +1,12 @@
+require('dotenv').config()
 const express = require("express")
 const app = express()
-const port = 5000
+const port = process.env.PORT
 
-app.use(express.static('public'))
+app.get('/', (req, res) => {
+  res.send("My app is deployed on Heroku")
+})
 
 app.listen(port, () => {
   console.log(`App running on port ${port}`)
 })
-
